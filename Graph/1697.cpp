@@ -26,21 +26,27 @@ int main(void){
 		if(u == K){
 			printf("%d\n",udist);
 			break;
-		} 
-		if ( u-1 < 0 )
+		}
+	       	if(u-1 < 0)
 			continue;
+			
+		else{
 		visit[u-1] = 1;
 		q.push(make_pair(u-1, udist+1));
+		}
 		
 		if ( u+1 >= 100000)
 			continue;
+		else{
 		visit[u+1] = 1;
 		q.push(make_pair(u+1, udist+1));
+		}
 		if (2*u >= 100000)
 			continue;
+		else{
 		visit[2*u] = 1;
 		q.push(make_pair(2*u, udist+1));
-
+		}
 	}
 
 	return 0;

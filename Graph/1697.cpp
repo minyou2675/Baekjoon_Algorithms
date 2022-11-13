@@ -6,13 +6,13 @@
 
 using namespace std;
 
-int visit[1000];
+int visit[100000];
 
 int main(void){
 	int N,K;
 	int u, udist;
 	queue<pair<int, int>> q;
-	for ( int i = 0; i < 1000; i++)
+	for ( int i = 0; i < 100000; i++)
 		visit[i] = 0;
 
 	scanf("%d %d",&N,&K);
@@ -32,11 +32,11 @@ int main(void){
 		visit[u-1] = 1;
 		q.push(make_pair(u-1, udist+1));
 		
-		if ( u+1 >= 1000)
+		if ( u+1 >= 100000)
 			continue;
 		visit[u+1] = 1;
 		q.push(make_pair(u+1, udist+1));
-		if (2*u > 1000)
+		if (2*u >= 100000)
 			continue;
 		visit[2*u] = 1;
 		q.push(make_pair(2*u, udist+1));

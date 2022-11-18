@@ -22,13 +22,6 @@ int main(){
 		scanf("%d",&B[i]);
 	}
 	sort(A,A+N);
-	for(i = 0; i < N; i++){
-	printf("%d",A[i]);
-	}
-	for(i = 0; i < N; i++){
-	printf("%d",B[i]);
-	}
-	printf("\n");
 	for(i = 0; i<N; i++){
 		idx = i;
 		
@@ -44,11 +37,6 @@ int main(){
 		A[i] = A[idx];
 		A[idx] = temp; 
 	}
-	for(i = 0; i < N; i++)
-		printf("%d ",A[i]);
-	printf("\n");
-	for(j = 0; j < N ; j++)
-		printf("%d ",B[j]);
 	for(i =0; i < N; i++){
 	sum += A[i] * B[i];
 	}

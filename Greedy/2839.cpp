@@ -12,8 +12,8 @@ int main(void){
 	vector<int>min;
        	
 	cin >> N;
-	for(i=0; i< 1000; i++){
-		for(j=0; j<5000/3;j++){
+	for(i=0; i<= 1000; i++){
+		for(j=0; j<=5000/3;j++){
 			if((5*i)+(3*j) == N){
 				min.push_back(i+j);
 			}

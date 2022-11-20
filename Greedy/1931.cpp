@@ -8,11 +8,11 @@ using namespace std;
 
 int main(void){
         int N;
-        int before,next;
+        int before = 0;
         vector<pair<int,int>> list;
         int min = 0;
         int cnt = 0;
-        int i,j;
+        int i;
         cin >> N;
 
         for(i=0; i < N; i++){
@@ -32,7 +32,6 @@ int main(void){
         }
 
         cout << cnt;
-
-        return 0;
+    return 0;
 }
                                  

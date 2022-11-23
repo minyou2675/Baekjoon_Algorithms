@@ -23,7 +23,6 @@ int main(void){
 		
 		udist = q.front().second;
 		q.pop();
-		printf("%d \n",u);
 		if(u == K){
 			printf("%d\n",udist);
 			break;

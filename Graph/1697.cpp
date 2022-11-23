@@ -1,6 +1,5 @@
 #include<cstdio>
 #include<cstdlib>
-#include<vector> 
 #include<algorithm>
 #include<queue>
 
@@ -21,29 +20,26 @@ int main(void){
 
 	while(!q.empty()){
 		u = q.front().first;
+		
 		udist = q.front().second;
 		q.pop();
+		printf("%d \n",u);
 		if(u == K){
 			printf("%d\n",udist);
 			break;
 		}
-	       	if(u-1 < 0)
-			continue;
-			
-		else{
+	       	if(u-1 >=  0 && visit[u-1] != 1){
 		visit[u-1] = 1;
 		q.push(make_pair(u-1, udist+1));
 		}
 		
-		if ( u+1 >= 100000)
-			continue;
-		else{
+		if ( u+1 < 100000 && visit[u+1] != 1)
+		{
 		visit[u+1] = 1;
 		q.push(make_pair(u+1, udist+1));
 		}
-		if (2*u >= 100000)
-			continue;
-		else{
+		if (2*u < 100000 && visit[2*u] != 1 )
+		{
 		visit[2*u] = 1;
 		q.push(make_pair(2*u, udist+1));
 		}

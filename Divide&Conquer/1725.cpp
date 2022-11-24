@@ -37,17 +37,17 @@ void hist(int start,int end,int mat[]){
 int main(void){
 	int N;
 	int i,j;
-	cin >> N;
+	scanf("%d",&N);
 	int mat[N];
 
 	for(i=0; i < N; i++){
-		cin >> mat[i];
+		scanf("%d",&mat[i]); 
 	}
 
 
 	hist(0,N-1,mat);
 	sort(g.begin(),g.end());
-	cout << g[N-1];
+	printf("%d",g[N-1]);
 	return 0;
 
 

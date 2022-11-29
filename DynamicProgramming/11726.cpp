@@ -1,26 +1,28 @@
 #include <cstdio>
-#include <vector>
-#include <queue>
 #include <iostream>
-#include <vector> 
+#include <vector>
+#include <algorithm>
 using namespace std;
 
-int i = 0;
-vector <int> v;
 
-void block(int n){
+int vec[1000000];
+
+
+int block(int n){
+	if(vec[n])
+		return vec[n];
 	if(n == 1){
-		v.push_back(1);
-		i++;
+		
+		return 1;
 	}
 	else if(n == 2)
 		{
-		v.push_back(2);
-		i++;
+			
+		return 2;
+		
 		}
 	else{
-	block(n-1);
-	block(n-2);
+	return vec[n] = block(n-1) + block(n-2);
 	}
 	
 		
@@ -29,16 +31,12 @@ void block(int n){
 
 
 int main(void){
-	int sum = 0;
 	int N;
 	cin >> N;
 	
 
 	block(N);
-	for (int k =0; k < i ; k++){
-		sum += v[k];
-	}
-	printf("%d",sum%10007);
+	printf("%d",vec[N]%10007);
 	return 0;
 
 

@@ -3,18 +3,25 @@
 #include <queue>
 
 using namespace std;
-queue <int> q;
+int map[1000000];
+int i = 0;
 
-int block(int n){
-	if(n == 1)
-		return 1;
-	else if(n == 2)
-		return 2;
-	else{
-		int result =  block(n-1)+block(n-2);
-		q.push(result);
-		return 0;
+void block(int n){
+	if(n == 1){
+		map[i] = 1;
+		i++;
 	}
+	else if(n == 2)
+		{
+		map[i] = 2;
+		i++;
+		}
+	else{
+	block(n-1);
+	block(n-2);
+	}
+	
+		
 
 }
 
@@ -24,12 +31,11 @@ int main(void){
 	int N;
 	scanf("%d",&N); 
 	block(N);
-	while(!q.empty()){
-		sum += q.front();
-		q.pop();
+	for (int k =0; k < i ; k++){
+		sum += map[k];
 	}
 	printf("%d",sum%10007);
-
+	return 0;
 
 
 

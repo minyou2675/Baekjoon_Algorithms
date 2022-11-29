@@ -35,8 +35,8 @@ int main(void){
 	cin >> N;
 	
 
-	block(N);
-	printf("%d",vec[N]%10007);
+	
+	printf("%d",block[N]%10007);
 	return 0;
 
 

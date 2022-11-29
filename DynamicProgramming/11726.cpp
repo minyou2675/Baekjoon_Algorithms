@@ -22,7 +22,7 @@ int block(int n){
 		
 		}
 	else{
-	return vec[n] = block(n-1) + block(n-2);
+	return vec[n] = (block(n-1) + block(n-2))%10007;
 	}
 	
 		
@@ -35,8 +35,8 @@ int main(void){
 	cin >> N;
 	
 
-	
-	printf("%d",block[N]%10007);
+	block(N);	
+	printf("%d",vec[N]);
 	return 0;
 
 

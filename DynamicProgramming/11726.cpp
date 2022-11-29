@@ -2,23 +2,25 @@
 #include <vector>
 #include <queue>
 #include <iostream>
+#include <vector> 
 using namespace std;
 
 int i = 0;
+vector <int> v;
 
-void block(int n,int map[]){
+void block(int n){
 	if(n == 1){
-		map[i] = 1;
+		v.push_back(1);
 		i++;
 	}
 	else if(n == 2)
 		{
-		map[i] = 2;
+		v.push_back(2);
 		i++;
 		}
 	else{
-	block(n-1,map);
-	block(n-2,map);
+	block(n-1);
+	block(n-2);
 	}
 	
 		
@@ -30,11 +32,11 @@ int main(void){
 	int sum = 0;
 	int N;
 	cin >> N;
-	int map[N*N];
+	
 
-	block(N,map);
+	block(N);
 	for (int k =0; k < i ; k++){
-		sum += map[k];
+		sum += v[k];
 	}
 	printf("%d",sum%10007);
 	return 0;

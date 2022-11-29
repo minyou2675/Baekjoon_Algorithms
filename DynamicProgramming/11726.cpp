@@ -1,12 +1,12 @@
 #include <cstdio>
 #include <vector>
 #include <queue>
-
+#include <iostream>
 using namespace std;
-int map[1000000];
+
 int i = 0;
 
-void block(int n){
+void block(int n,int map[]){
 	if(n == 1){
 		map[i] = 1;
 		i++;
@@ -17,8 +17,8 @@ void block(int n){
 		i++;
 		}
 	else{
-	block(n-1);
-	block(n-2);
+	block(n-1,map);
+	block(n-2,map);
 	}
 	
 		
@@ -29,8 +29,10 @@ void block(int n){
 int main(void){
 	int sum = 0;
 	int N;
-	scanf("%d",&N); 
-	block(N);
+	cin >> N;
+	int map[N*N];
+
+	block(N,map);
 	for (int k =0; k < i ; k++){
 		sum += map[k];
 	}

@@ -4,7 +4,7 @@
 #include <vector>
 using namespace std;
 
-int lst[1000000];
+int lst[1000001];
 
 
 int min(int n){
@@ -12,9 +12,9 @@ int min(int n){
 		return lst[n];
 	else if(n==1)
 		return 0;
-	if(n%3 == 0 && n&2 == 0){
+	else if(n%3 == 0 && n&2 == 0){
 		int minimum;
-		cout << n;
+		
 		minimum =  min(n/3) < min(n/2) ? min(n/3)+1 : min(n/2)+1;
 		return lst[n] = minimum < min(n-1)+1 ? minimum : min(n-1)+1; 
 	}

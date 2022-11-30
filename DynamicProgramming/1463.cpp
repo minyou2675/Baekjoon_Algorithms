@@ -10,7 +10,7 @@ int lst[1000001];
 int min(int n){
 	if(lst[n])
 		return lst[n];
-	if(n==1)
+	else if(n==1)
 		return 0;
 	else  if(n%3 == 0 && n&2 == 0){
 		int minimum;

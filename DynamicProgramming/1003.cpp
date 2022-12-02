@@ -26,13 +26,13 @@ int main(void){
 
 	int N;
 	cin >> N;
-	for(int i =1; i < N+1; i++){
+	for(int i =0; i < N ; i++){
 		int num;
 		cin >> num;
 		lst[i] = num;
 		
 	}
-	for(int i = 1; i < N+1; i++){
+	for(int i = 0; i < N; i++){
 		if(lst[i] == 0)
 			 cout << "1 0\n";
 		else if(lst[i] == 1)

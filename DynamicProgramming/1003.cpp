@@ -1,27 +1,47 @@
 #include <cstdio>
 #include <cstdlib>
-#include <algorithm>
+#include <iostream>
+#include <iomanip>
 
 using namespace std;
 
+
+int lst1[41];
+
 int lst[41];
 
+
 int Fib(int n){
-	if(n == 1)
-		return 1;
+	if(lst1[n])
+		return lst1[n];
 	else if(n == 0)
 		return 0;
-
-	return lst[n] = Fib(n-1)+Fib(n-2);
+	else if(n == 1)
+		return 1;
+	
+	return lst1[n] = Fib(n-1) + Fib(n-2); 
 }
 
 int main(void){
 
 	int N;
 	cin >> N;
-	for(int i =0; i < N; i++){
-		Fib(i)
+	for(int i =1; i < N+1; i++){
+		int num;
+		cin >> num;
+		lst[i] = num;
+		Fib(num);
 	}
+	for(int i = 1; i < N+1; i++){
+		if(lst[i] == 0)
+			 cout << "1 0\n";
+		else if(lst[i] == 1)
+			cout << "0 1\n";
+		else
+		printf("%d %d\n",lst1[lst[i]-1] , lst1[lst[i]]);
+		
+	}
+		
 
 
 

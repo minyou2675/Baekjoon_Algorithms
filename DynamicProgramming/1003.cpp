@@ -2,13 +2,15 @@
 #include <cstdlib>
 #include <iostream>
 #include <iomanip>
+#include <queue>
 
 using namespace std;
+
+queue <int> q;
 
 
 int lst1[41];
 
-int lst[41];
 
 
 int Fib(int n){
@@ -29,16 +31,20 @@ int main(void){
 	for(int i =0; i < N ; i++){
 		int num;
 		cin >> num;
-		lst[i] = num;
+		q.push(num);
 		
 	}
-	for(int i = 0; i < N; i++){
-		if(lst[i] == 0)
+	while(!q.empty()){
+		if(q.front() == 0)
 			 cout << "1 0\n";
-		else if(lst[i] == 1)
+			
+		else if(q.front() == 1)
 			cout << "0 1\n";
+			
 		else
-		printf("%d %d\n",Fib(lst[i]-1) , Fib(lst[i]));
+		printf("%d %d\n",Fib(q.front()-1) , Fib(q.front()));
+		
+		q.pop();
 		
 	}
 		

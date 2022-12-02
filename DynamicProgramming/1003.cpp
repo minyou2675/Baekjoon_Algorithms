@@ -30,7 +30,7 @@ int main(void){
 		int num;
 		cin >> num;
 		lst[i] = num;
-		Fib(num);
+		
 	}
 	for(int i = 1; i < N+1; i++){
 		if(lst[i] == 0)
@@ -38,7 +38,7 @@ int main(void){
 		else if(lst[i] == 1)
 			cout << "0 1\n";
 		else
-		printf("%d %d\n",lst1[lst[i]-1] , lst1[lst[i]]);
+		printf("%d %d\n",Fib(lst[i]-1) , Fib(lst[i]));
 		
 	}
 		

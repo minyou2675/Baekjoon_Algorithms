@@ -1,95 +1,67 @@
-#include<cstdio>
-#include<cstdlib>
-#include<vector>
-#include<algorithm> 
-#include<queue>
+#include <iostream>
+#include <queue>
+#include <cstdio>
 
 using namespace std;
-int N,M;
-int dx[4] = {1,0,-1, 0};
-int dy[4] = {0,-1,0,1};
 
-vector<int> edge[1000];
+int M,N;
+int visit[1000][1000];
+int check[1000][1000];
+int map[1000][1000];
+int cnt = 0;
+queue <pair<int,int>> q;
 
-int dist[1000];
+int dx[] = {-1, 1, 0, 0};
+int dy[] = {0, 0, -1, 1};
 
-int main(void)
-{
-	int i,j,u;
-	int maxd;
-	int vcnt;
-	int x,y;
-       	queue<int>q;	
-	
+int bfs(int x, int y){
+	if(!visit[x][y] && map[x][y] == 1){
+		visit[x][y] = true;
+		for(int i = 0; i < 4; i++){
+			int nx = dx[i]+x;
+			int ny = dy[i]+y;
 
-	scanf("%d %d",&N,&M);
-	int map[M][N];
-	for(i =0; i < M; i++)
-		for( j = 0; j < N; j++){
-		scanf("%d",&map[i][j]);
-		};
-	for(i = 0; i < 1000; i++)
-		q.push(i);
-		dist[i] = -1;
-
-		vcnt = 0;
-	       	maxd = 0;	
-
-	for(i = 0; i < 1000; i++)
-		edge[i].clear();
-
-	for( i = 0; i <M; i++)
-		for( j = 0; j < N; j++){
-		if(map[i][j] == -1)
-			continue;
-		u = j + N * i;
-		vcnt++;
-		if(map[i][j] == 1){
-			q.push(u);
-			dist[u];
-		} 
-		for(int a = 0; a < 4; a++){
-			x = j + dx[a];
-			y = i + dy[a];
-			if(x>=N || x < 0 || y>= M || y <0)
-				continue;
-			if(map[x][y] == -1) 
-				continue;
-			int v = x + N * y;
-			edge[u].push_back(v);
-		} 
+			if(nx >= 0&& nx < M && ny >= 0 &&ny < N)
+				if(!visit[nx][ny] && !check[nx][ny] &&map[nx][ny] == 0){
+					map[nx][ny] = 1;
+					check[nx][ny] = true;
+					q.push(make_pair(nx,ny));
+				} 
+				
 
 		}
+	return cnt;}
+	return 0;
 
-	for( i = 0; i < N*M; i++){
-		if(edge[i].size() == 0)
-			continue;
-		sort(edge[i].begin(), edge[j].end());
-	}
 
-	
-	
-	while(!q.empty()){ 
-		u = q.front();
-		q.pop();
-		vcnt--;
-		
-		for( i =0; i < edge[u].size(); i++){
-			if(dist[edge[u][i]] == -1);{
-		       		dist[edge[u][j]] = dist[u] + 1;
-				maxd = (dist[edge[u][j]] > maxd) ? dist[edge[u][j]]:maxd;
-		       		q.push(edge[u][j]); 
-			}
+}
+
+int main(void){
+
+	cin >> M >> N;
+
+	for(int i = 0; i < N; i++)
+		for(int j = 0; j < M; j++){
+				cin >> map[i][j]; 
+			if(map[i][j] == 1)
+				q.push(make_pair(i,j));
 		}
-		
-	
+
+	while(!q.empty()){		
+			bfs(q.front().first,q.front().second);
+			q.pop();
+			cnt ++;		
 	}
-	if( vcnt == 0)
-		printf("%d",maxd);
-	else
-	printf("-1");
 
+	for (int i = 0; i < N; i++){
+		for(int j = 0; j < M; j++){
+			if(map[i][j] == 0)
+				cnt = -1;
+		}
+	}
 
-	return -1;
+	cout << cnt;
+		
 
+	return 0;
 }

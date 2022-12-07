@@ -9,6 +9,7 @@ using namespace std;
 int rgb[1000][3];
 int color[1000];
 int N;
+
 int min_cost(int n){
     int minVal = INF;
     
@@ -57,7 +58,7 @@ int main(void)
         
         
     }
-    cout << min_cost(0);
+    printf("%d", min_cost(0);)
 
 
 return 0;

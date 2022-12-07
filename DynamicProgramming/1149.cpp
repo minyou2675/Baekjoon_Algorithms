@@ -3,7 +3,7 @@
 #include<algorithm>
 #include<cstring>
 using namespace std;
-#define INF 1001
+#define INF 10000
 
 int rgb[1001][3];
 int color[1001];
@@ -61,7 +61,7 @@ int main(void)
         temp = rgb[0][color[0]]+min_cost(1);
       	mini = mini < temp ? mini : temp;
    }
-    printf("%d",mini);
+    printf("%d\n",mini);
 
 
 return 0;

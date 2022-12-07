@@ -12,20 +12,8 @@ int result[3];
 
 int min_cost(int n){
     int minVal = INF;
-    
-
-if(n == 0){
-        for(int i = 0; i < 3; i++){
         
-            color[0] = i;
-            int temp = rgb[0][color[0]] +min_cost(n+1);
-            result[i] = temp;
-}
-        }
-
-	
-        
-    else if(n > 0){
+    if(n > 0){
        for(int i = 0; i < 3; i++){
 	    int temp;
 	    int cost;
@@ -40,12 +28,11 @@ if(n == 0){
 	
        }
        }
-       return result[color[0]] += minVal;
-       
+         
         
 }
 
-
+return minVal;
  
 }
 
@@ -58,9 +45,14 @@ int main(void)
         
         
     }
-    min_cost(0);
+    int min;
+    for(int i = 0; i < 3; i++){
+        color[0] = i;
+        min = rgb[0][color[0]]+min_cost(1);
+        
+    }
     sort(result,result+3);
-    printf("%d", result[0]);
+    printf("%d",result[0]);
 
 
 return 0;

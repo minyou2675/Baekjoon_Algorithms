@@ -3,6 +3,7 @@
 #include <iostream> 
 #include <queue>
 #include <vector>
+#include <cstring>
 
 using namespace std;
 int map[25][25];
@@ -23,7 +24,7 @@ void dfs(int x, int y){
             int nx = dx[i]+x;
             int ny = dy[i]+y;
             if(nx >= 0 && nx < N && ny >= 0 && ny < N){
-                if(!visit[nx][ny]&&!map[nx][ny] == 1){
+                if(!visit[nx][ny]&&map[nx][ny] == 1){
                     dfs(nx,ny);
                     
                 }
@@ -36,26 +37,26 @@ void dfs(int x, int y){
 }
 
 int main(void){
-    int N;
+    
     cin >> N;
 
     for(int i = 0; i < N; i++)
         for(int j = 0; j < N; j++)
         {
-            int num;
-            cin >> num;
-            map[i][j] = num;
+           scanf("%1d", &map[i][j]);
             
-                // q.push(make_pair(i,j));
             }
+
+   	memset(visit,false,sizeof(visit));
 
 
         for(int i = 0; i < N; i++)
             for(int j = 0; j < N; j++)
             if(map[i][j] == 1 && !visit[i][j])
-                {cnt;
-                dfs(i, j);
-                vec.push_back(pre);
+                {
+		 cnt ++;
+               	 dfs(i, j);
+                 vec.push_back(pre);
                 pre = 0;
                 }
 

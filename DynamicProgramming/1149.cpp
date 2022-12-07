@@ -2,43 +2,40 @@
 #include<cstdio>
 #include<vector>
 #include<algorithm>
+#include<cstring>
 using namespace std;
 #define INF 10000000
 
-vector <int> rgb[1000];
+int rgb[1000][3];
 int color[1000];
 int N;
 int min_cost(int n){
     int minVal = INF;
+    
 
 if(n == 0){
         for(int i = 0; i < 3; i++){
-            int cost;
+        
             color[0] = i;
-            int temp = rgb[0][color[0]];
+            int temp = rgb[0][color[0]] +min_cost(n+1);
             minVal = min(temp,minVal);
 }
         }
 
-        if(n == N-1){
-            for(int i = 0 ; i < 3; i++){
-                color[n] = i;
-                if(color[n-1] != color[n]){
-                    int temp = rgb[n][color[n]];
-                    minVal = min(temp,minVal);
-            }
-            return minVal;
-        }
-        }
-    else if(n > 0 && n < N-1){
+	
+        
+    else if(n > 0){
        for(int i = 0; i < 3; i++){
+	    int temp;
             color[n] = i;
-        
-        
-        if(color[n-1] != color[n] && color[n+1]!= color[n]){
-           int temp = rgb[n][color[n]]+min_cost(n+1);
-            minVal = min(temp,minVal); 
-        
+         
+        if(color[n-1] != color[n]){
+		if(n == N-1)
+			temp= rgb[n][color[n]];
+		else
+        	  	 temp = rgb[n][color[n]]+min_cost(n+1);
+           	    minVal = min(temp,minVal); 
+	
        }
        }
        return minVal;
@@ -46,21 +43,18 @@ if(n == 0){
         
 }
 
-return minVal += min_cost(n+1);
+return minVal;
 
  
 }
 
 int main(void)
 {
-    int N;
+    
     cin >> N;
     for(int i =0; i < N; i++){
-        int r,g,b;
-        cin >> r >> g >> b;
-        rgb[i].push_back(r);
-        rgb[i].push_back(g);
-        rgb[i].push_back(b);
+        scanf("%d %d %d",&rgb[i][0],&rgb[i][1],&rgb[i][2]);
+        
         
     }
     cout << min_cost(0);

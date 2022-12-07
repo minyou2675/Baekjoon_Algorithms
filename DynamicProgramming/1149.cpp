@@ -5,8 +5,8 @@
 using namespace std;
 #define INF 1001
 
-int rgb[1000][3];
-int color[1000];
+int rgb[1001][3];
+int color[1001];
 int N;
 int result[3];
 

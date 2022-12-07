@@ -12,17 +12,25 @@ int result[3];
 
 int min_cost(int n){
     int minVal = INF;
+
+    if(n == N-1){
+	    if(color[n-1] == 0)
+		    minVal = rgb[n][1] > rgb[n][2] ? rgb[n][2] : rgb[n][1];
+	    else  if(color[n-1] == 1)
+		    minVal = rgb[n][0] < rgb[n][2] ? rgb[n][0] : rgb[n][2];
+	    else
+		    minVal = rgb[n][0] < rgb[n][1] ? rgb[n][0] : rgb[n][1];
+    	return minVal;
+    } 
         
-    if(n > 0){
+   else  if(0 < n && n < N-1){
        for(int i = 0; i < 3; i++){
 	    int temp;
 	    int cost;
             color[n] = i;
          
         if(color[n-1] != color[n]){
-		if(n == N-1)
-			minVal = rgb[n][color[n]];
-		else{
+
         	    temp = rgb[n][color[n]]+min_cost(n+1);
            	    minVal = min(temp,minVal); 
 	
@@ -31,7 +39,7 @@ int min_cost(int n){
          
         
 }
-}
+
 
 return minVal;
 } 
@@ -51,8 +59,9 @@ int main(void)
         color[0] = i;
 	int temp; 
         temp = rgb[0][color[0]]+min_cost(1);
+	printf("%d\n",temp);
       	mini = mini < temp ? mini : temp;
-    }
+   }
     printf("%d",mini);
 
 

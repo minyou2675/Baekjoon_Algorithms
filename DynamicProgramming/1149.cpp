@@ -32,7 +32,7 @@ int min_cost(int n){
         if(color[n-1] != color[n]){
 
         	    temp = rgb[n][color[n]]+min_cost(n+1);
-           	    minVal = min(temp,minVal); 
+           	    minVal = temp < minVal ? temp : minVal;
 	
        }
        }

@@ -4,7 +4,7 @@
 #include<algorithm>
 #include<cstring>
 using namespace std;
-#define INF 10000000
+#define INF 1001
 
 int rgb[1000][3];
 int color[1000];
@@ -58,7 +58,7 @@ int main(void)
         
         
     }
-    printf("%d", min_cost(0);)
+    printf("%d", min_cost(0));
 
 
 return 0;

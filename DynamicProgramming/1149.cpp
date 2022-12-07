@@ -59,7 +59,6 @@ int main(void)
         color[0] = i;
 	int temp; 
         temp = rgb[0][color[0]]+min_cost(1);
-	printf("%d\n",temp);
       	mini = mini < temp ? mini : temp;
    }
     printf("%d",mini);

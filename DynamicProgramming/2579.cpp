@@ -1,31 +1,32 @@
 #include <cstdio>
 #include <algorithm>
 #include <iostream>
+#include <vector>
 
 using namespace std;
-int score[300]; 
+vector <int> stair;
+vector <int > dp;
 int N;
 
-void cal_score(){
-
-    for(int i=0; i <= N; i++){
-        score[i] =score[i] + max(score[n-1],score[n-2]);
-    }
-
-}
 
 int main(void){
+	cin.tie(NULL);
+	cout.tie(NULL);
     cin >> N;
-    score[0] = 0;
-    for(int i = 1; i <= N; i++){
+    dp.resize(N);
+    for(int i = 0; i < N; i++){
 	    int n; 
         cin >> n;
-	    score[i] = n;
+	stair.push_back(n);
 
     }
-    cal_score();
-    cout << score[N];
+   dp[0] = stair[0];
+   dp[1] = max(stair[1], stair[0]+stair[1]);
+   dp[2] = max(stair[2]+stair[1],stair[2]+stair[0]);
 
+   for(int i =3; i < N; i++) 
+	   dp[i] = max(dp[i-2]+stair[i],dp[i-3]+stair[i]+stair[i-1]);
+	cout << dp[N-1] << endl;
 	return 0;
 
 }

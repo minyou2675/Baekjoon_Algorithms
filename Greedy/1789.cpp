@@ -5,11 +5,11 @@
 
 using namespace std;
 
-int main(void){
-    int S;
-    int num = 0;
-    int num2 = 0;
-    int cnt = 0;
+int  main(void){
+    long long S;
+    long long  num = 0;
+    long long  num2 = 0;
+    long long  cnt = 0;
     cin >> S;
 
     while(1){

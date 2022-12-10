@@ -19,7 +19,15 @@ int main(void){
     }
 
     sort(g.begin(),g.end());
-    cout << g[0] * N;
+    int max = g[0]* N;
+    for (int i  =1 ; i < N; i++){
+	
+	 int  temp = g[i] * (N-i);
+	   max = max > temp ? max : temp;
+	   
+    }
+
+    cout << max << endl;
     
 
 

@@ -14,27 +14,23 @@ int main(void){
 
     cin >> N;
 
-    while(N != 0 ){
-        if(N >= button[0]){
-            greedy[0] = N/button[0];
-            N = N%button[0]
+    	for(int i = 0; i < 3; i++){
+        if(N >= button[i]){
+            greedy[i] = N/button[i];
+            N = N%button[i];
+	   
         }
-        else if(N >= button[1]){
-            greedy[1] = N/button[1];
-            N = N%button[1];
-        }
-        else if(N >= button[2]){
-            greedy[2] = N/button[2];
-            N = N%button[2];
-        }
-        if(N < button[2]){
+	else
+		continue;
+	}
+        
+        if(N < button[2] && N > 0)
             cout << -1 << endl;
-            break;
-        }
+        
         else{
             cout << greedy[0] << " " << greedy[1] << " " << greedy[2] << endl;
         }
-    }
+    
     return 0;
    
 

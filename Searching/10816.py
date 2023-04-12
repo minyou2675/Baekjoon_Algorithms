@@ -15,6 +15,6 @@ def hashmap():
         if i in hash:
             hash[i] += 1
     for s in lst2:
-        print(hash[s],end='')
+        print(hash[s],end=' ')
 
 hashmap()
